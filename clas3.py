@@ -1,4 +1,4 @@
-n = int(input('N:15'))
+n = int(input('N:'))
 
 result = 0
 current = 1
