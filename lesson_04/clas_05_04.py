@@ -13,6 +13,6 @@ my_map = {
 def month_to_season(month_number):
     for season, months in my_map.items():
         if month_number in months:
-            return season
+            return season убрать
 
 print(month_to_season(2))
