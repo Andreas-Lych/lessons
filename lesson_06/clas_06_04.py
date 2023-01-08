@@ -6,7 +6,7 @@
 """
 
 import random
-
+count = 0
 my_names = ['h6', 'h7', 'h8', 'h9', 'h10', 'hJ', 'hD', 'hK', 'hA', 'd6', 'd7', 'd8', 'd9', 'd10', 'dJ', 'dD', 'dK', 'dA',
 'c6', 'c7', 'c8', 'c9', 'c10', 'cJ', 'cD', 'cK', 'cA', 's6', 's7', 's8', 's9', 's10', 'sJ', 'sD', 'sK', 'sA']
 
@@ -17,7 +17,16 @@ my_dict = {'h6': 6, 'h7': 7, 'h8': 8, 'h9': 9, 'h10': 10, 'hJ': 2, 'hD': 3, 'hK'
 
 from random import sample
 
-
 data = list(my_dict.items())
 r = sample(data, 2)
 print(random.sample(data, 2))
+
+while True:
+    choice = input('будете брать карту? y/n\n')
+    if choice == 'y':
+        data = list(my_dict.items())
+        r = sample(data, 1)
+        print(random.sample(data, 1))
+    elif choice == 'n':
+        print('вы закончили игру.')
+        break
