@@ -30,3 +30,8 @@ while True:
     elif choice == 'n':
         print('вы закончили игру.')
         break
+
+"""y
+def nominal_to_value(nominal):
+    return my_dict[nominal]
+"""
