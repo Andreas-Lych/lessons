@@ -4,23 +4,9 @@
 сообщение на экран. Создать объект класса Dog, вызвать все методы объекта и вывести на экран все его атрибуты.
 """
 
-class Dog:
-    height = None
-    weight = None
-    name = None
-    age = None
+from lesson_08.animal.animal import Animal
+class Dog(Animal):
 
-    def __init__(self, height, weight, name, age):
-        self.height = height
-        self.weight = weight
-        self.name = name
-        self.age = age
-
-    def jump(self):
-        print(f"{self.name} is jumping")
-
-    def run(self):
-        print(f"{self.name} is running")
 
     def bark(self):
         print(f"{self.name} is barking")
