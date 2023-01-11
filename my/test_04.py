@@ -17,7 +17,8 @@ new_dict = {
 
 print(new_dict)
 
-first_name = int(input())
-last_name = int(input())
+first_name = input()
+last_name = input()
 
 my_string_1 = f"Hello, {first_name} {last_name}"
+print(my_string_1)
