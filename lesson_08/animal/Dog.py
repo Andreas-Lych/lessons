@@ -7,7 +7,6 @@
 from lesson_08.animal.animal import Animal
 class Dog(Animal):
 
-
     def bark(self):
         print(f"{self.name} is barking")
 

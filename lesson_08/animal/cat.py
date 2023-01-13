@@ -9,8 +9,6 @@ class Cat(Animal):
     def meow(self):
         print(f"{self.name} is meowing")
 
-
-
 if __name__ == "__main__":
     cat = Cat(50, 7, "My cat", 4)
 

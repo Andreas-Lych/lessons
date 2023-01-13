@@ -24,7 +24,3 @@ class Animal:
 
     def change_name(self, name):
         self.name = name
-
-if __name__ == "__main__":
-    dog = Dog(100, 50, "My dog", 10)
-

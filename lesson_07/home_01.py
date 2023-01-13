@@ -4,9 +4,26 @@
 которая считывает название города и выводит на печать страну.
 """
 
-my_dict = {"russia": "moscow", "russia": "rostov", "russia": "kazan", "russia": "smolensk", "belarus": "minsk",
-           "belarus": "brest", "belarus": "mogilev", "belarus": "gomel", "germany": "berlin", "germany": "bremen",
-           "germany": "bayern", "germany": "dortmund"}
+from typing import Optional
 
-for value in my_dict
-    if value
+country_and_city = {
+    "Russia": ["Moskow", "Rostov", "Smolensk", "Kazan"],
+    "Belarus": ["Minsk", "Brest", "Mogilev", "Vitebsk"],
+    "Germany": ["Berlin", "Koln", "Dortmund", "Bremen"]}
+
+def main():
+    city = input("Введите город: ")
+    country = find_country(city)
+    if country is not None:
+        print(f"{city} находится в {country}")
+    else:
+        print(f"Не найден {city}")
+
+def find_country(city: str) -> Optional[str]:
+        for country, cities in country_and_city.items():
+            if city in cities:
+                return country
+
+
+if __name__ == "__main__":
+    main()
