@@ -17,18 +17,18 @@ class Car:
         self.speed = speed
 
     def speed_1(self):
-        print(f"{self.mark} speed is 0km")
+        print(f"{self.mark} speed is 0km/h")
     def speed_2(self):
-        print(f"{self.mark} is speed + 5km/h")
+        print(f"{self.mark} speed, + 5km/h")
 
     def speed_3(self):
-        print(f"{self.mark} is speed - 5km/h")
+        print(f"{self.mark} speed, - 5km/h")
 
     def speed_4(self):
-        print(f"{self.mark} stop 0km/h")
+        print(f"{self.mark} is stopping, 0km/h")
 
 if __name__ == "__main__":
-    car = Car("Audi", "Q4", 4, 0)
+    car = Car("Car", "prototype", 0, 0)
 
     car.speed_1()
     car.speed_2()
