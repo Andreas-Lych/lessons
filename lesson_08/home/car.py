@@ -28,7 +28,7 @@ class Car:
         print(f"{self.mark} is stopping, 0km/h")
 
 if __name__ == "__main__":
-    car = Car("Car", "prototype", 0, 0)
+    car = Car("Car", "prototype", 2023, 0)
 
     car.speed_1()
     car.speed_2()

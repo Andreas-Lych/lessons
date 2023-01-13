@@ -4,28 +4,20 @@
 """
 from lesson_08.home.car import Car
 
-class Car:
-    mark = None
-    model = None
-    age = None
-    speed = None
+class New_car(Car):
 
-    def __init__(self, mark, model, age, speed):
-        self.mark = mark
-        self.model = model
-        self.age = age
-        self.speed = speed
-
-    def speed_1(self):
+    def speed_5(self):
         print(f"{self.mark} speed increased to 100km/h")
+    def speed_now(self):
+        print(f"{self.mark}, current speed is 100km/h")
     def change_mark(self, mark):
         self.mark = mark
-
 if __name__ == "__main__":
-    car = Car("Car", "E500", 2000, 100)
+    car = New_car("Car", "E500", 2000, 100)
 
-    car.speed_1()
+    car.speed_5()
     car.change_mark(mark="Mercedes")
+    car.speed_now()
 
 
     print(car.mark, car.model, car.age, car.speed)
