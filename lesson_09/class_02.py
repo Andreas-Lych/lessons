@@ -16,6 +16,7 @@
 
 Создать объект класса MyDateTime, умножить его на 2 и вывести на печать результат.
 """
+from __future__ import annotations
 class MyTime:
 
     def __init__(self, hours, minutes, seconds):
@@ -25,14 +26,19 @@ class MyTime:
     def __eq__(self, other) -> bool:
         return self.timestamp == other.timestamp
 
-    def __ge__(self, other) -> bool:
-        return self.timestamp >= other.timestamp
+    def __add__(self, other) -> MyTime:
+        timestamp = self.timestamp + other.timestamp
+        hours = timestamp // (60 * 60)
+        minutes = (timestamp % (60 * 60)) // 60
+        seconds = timestamp % 60
+        return MyTime(hours, minutes, seconds)
 
-    def __lt__(self, other) -> bool:
-        return self.timestamp < other.timestamp
+    def __str__(self):
+        return f"MyTime: {self.hours}:{self.minutes}:{self.seconds}"
+
 
 if __name__ == "__main__":
     time1 = MyTime(12, 12, 12)
     time2 = MyTime(12, 12, 12)
-
     print(time1 == time2)
+    print(time1 + time2)
