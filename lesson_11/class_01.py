@@ -15,3 +15,4 @@ def create_user(firstname: str, lastname: str, email: str, password: str, age: i
 
 create_user("Alexander", "Chaika", "manti.by@gmail.com", "TestPass", "36")
 create_user("Andreas", "Lych", "andreas1981@gmail.com", "TestPass", "39")
+create_user("Roman", "Rogov", "Rogov_RM@gmail.com", "TestPass", "45")
