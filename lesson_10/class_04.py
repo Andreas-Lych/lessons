@@ -2,12 +2,13 @@
 Пользователь вводит два числа N и M, рассчитать последовательность  N + NN + NNN + ... + NxM.
 """
 
-class NM
+
 n = int(input("Введите число n =")) # число
-m = int(input("Введите число m =")) # количество повторений
+m = int(input("Введите число m =")) # число
 
-    def __init__(n, m):
-        self.n = n
-        self.m = m
+temp = str(n)
+t1 = temp + temp
+t2 = temp + temp + temp
 
-    def progessija((n+(n*n)+(n*n*n)))
+comp = n + int(t1) + int(t2)
+print("Результат равен:", comp)
