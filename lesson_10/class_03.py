@@ -19,12 +19,22 @@ for i in range(3, n):
     # сохраним значение текущего элемента в переменной b_prev
     a_prev = a_cur
 
-from time import sleep
 
-i = 5 # знаменатель прогрессии
-n = 12 # число элементов прогрессии
-q = 4 # знаменатель прогрессии
-def regular_generator():
-   for i in range(4):
-       sleep(1)
-       yield i
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
+
+
+def my_generator(power: int, limit: int):
+    for current in range(1, limit + 1):
+        yield current * power
+
+
+if __name__ == "__main__":
+    my_geo = my_generator(power=2, limit=5)
+    logger.info(next(my_geo))
+    logger.info(next(my_geo))
+    logger.info(next(my_geo))
+    for item in my_geo:
+        logger.info(item)
