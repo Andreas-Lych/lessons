@@ -10,7 +10,7 @@ def create_product(id: int, name: str, cost: int, quantity: int, comment: str):
        cursor = session.cursor()
        cursor.execute(
            """
-           INSERT INTO user_01 (id, name, cost, quantity, comment)
+           INSERT INTO product (id, name, cost, quantity, comment)
            VALUES (?, ?, ?, ?, ?);
            """,
            (id, name, cost, quantity, comment),
