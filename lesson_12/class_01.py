@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 
-from lesson_12.models import Base, User
+from lesson_12.models import Base, User, Address, Profile
 
 DB_PATH = Path(__file__).resolve().parent / "my_database.sqlite3"
 DB_ECHO = True
@@ -20,4 +20,20 @@ if __name__ == "__main__":
 
     user = User(email="test@test.com", password="password")
     session.add(user)
+
+    address = Address(user_id=user.id, city="Minsk", address="Test")
+    session.add(address)
+
+    profile = Profile(user_id=user.id, phone="+375298992123", age=20)
+    session.add(profile)
+
     session.commit()
+
+    user = session.query(User).filter(User.email == "test@test.com").first()
+    user.password = "new_password"
+    session.add(user)
+    session.commit()
+
+    result = session.query(Profile).filter(Profile.age >= 15)
+    for x in result:
+        print(x)

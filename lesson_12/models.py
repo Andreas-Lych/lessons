@@ -54,3 +54,6 @@ class Product(Base):
     price = Column(Float)
 
     purchases = relationship("Purchase", back_populates="product")
+
+
+
