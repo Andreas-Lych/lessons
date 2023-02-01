@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Column, ForeignKey
+from sqlalchemy import Integer, String, Column, ForeignKey, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -13,6 +13,7 @@ class User(Base):
 
     profile = relationship("Profile", back_populates="user", uselist=False)
     addresses = relationship("Address", back_populates="user")
+    purchases = relationship("Purchase", back_populates="user")
 
 
 class Profile(Base):
@@ -33,3 +34,23 @@ class Address(Base):
 
     user_id = Column(Integer, ForeignKey("user.id"))
     user = relationship("User", back_populates="addresses", uselist=False)
+
+
+class Purchase(Base):
+    __tablename__ = "purchase"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(ForeignKey("user.id"), primary_key=True)
+    product_id = Column(ForeignKey("product.id"), primary_key=True)
+    count = Column(Integer)
+
+    user = relationship("User", back_populates="purchases", uselist=False)
+    product = relationship("Product", back_populates="purchases", uselist=False)
+
+
+class Product(Base):
+    __tablename__ = "product"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    price = Column(Float)
+
+    purchases = relationship("Purchase", back_populates="product")
