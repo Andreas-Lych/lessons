@@ -22,11 +22,9 @@ if __name__ == "__main__":
     session = Session()
 
     user = User(email="test_00@test.com", password="123456")
-    user = User(email="test_11@test.com", password="654321")
-    user = User(email="test_22@test.com", password="987654")
-    user = User(email="test_33@test.com", password="456789")
-    user = User(email="test_44@test.com", password="135792")
     session.add(user)
+
+    session.commit()
 
     address = Address(user_id=user.id, city="Minsk", address="Test")
     session.add(address)
@@ -34,12 +32,12 @@ if __name__ == "__main__":
     profile = Profile(user_id=user.id, phone="+375298992123", age=20)
     session.add(profile)
 
+    product = Product(name="мебель", price=500)
+    session.add(product)
+    session.commit()
+
     purchase = Purchase(user_id=user.id, product_id=product.id, count=1500)
     session.add(purchase)
-
-    product = Product(user_id=user.id, name="мебель", price=500)
-    session.add(product)
-
     session.commit()
 
     user = session.query(User).filter(User.email == "test@test.com").first()
