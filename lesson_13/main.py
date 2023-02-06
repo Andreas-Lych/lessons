@@ -20,6 +20,12 @@ def create_user(session, email, password):
     session.commit()
     return user
 
+def search_users(session, email):
+    session.query(User).filter_by(email=email).first()
+    session.find(user)
+    return user
+
+
 if __name__ == "__main__":
     engine = create_engine(
         f"postgresql://{DB_USER}:{DB_PASSWORD}@localhost/{DB_NAME}"
@@ -34,6 +40,9 @@ if __name__ == "__main__":
     2. найти пользователя
     3. выйти
     """
+    buy = """
+     спасибо что выбрали нас. До новых встреч
+     """
 
     while True: # задает функцию бесконечности, пока выбор не выпадет на цифру 3 выход
         logger.info(menu)
@@ -47,4 +56,5 @@ if __name__ == "__main__":
             logger.info(f"User #{user.id} is created")
 
         elif choice == "3":
+            logger.info(buy)
             exit()
