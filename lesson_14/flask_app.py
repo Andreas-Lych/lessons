@@ -13,9 +13,11 @@ def index():
         logger.info("обрабатываем POST запрос")
         return request.form.to_dict()
 
+    for key, item in request.args.to_dict().items():  # надо вернуть ключ занчение парами
+        logger.info(f"{key}={item}")
+
     logger.info("обрабатываем GET запрос")
     return request.args.to_dict() # через кавычки выводит текст в эксплорер
-
 
 if __name__ == "__main__":
     app.run()
