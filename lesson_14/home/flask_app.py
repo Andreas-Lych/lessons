@@ -1,7 +1,13 @@
 import logging
 
-from lesson_13.models import Base, User
 from flask import Flask, request
+
+from sqlalchemy import create_engine
+from lesson_13.utils import create_tables
+from lesson_13.models import User
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 DB_USER = "andreas"
 DB_PASSWORD = "andreas"
@@ -13,22 +19,23 @@ def create_user(session, email, password):
     session.commit()
     return user
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 app = Flask(__name__)
-
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        logger.info("обрабатываем POST запрос")
+        create_user(app.session, request.form.to_dict()['email'],request.form.to_dict()['password'],)
+        logger.info("Обрабатываю POST запрос")
         return request.form.to_dict()
 
-    for key, item in request.args.to_dict().items():  # надо вернуть ключ занчение парами
-        logger.info(f"{key}={item}")
+    logger.info("Обрабатываю GET запрос")
+    return request.args.to_dict()
 
-    logger.info("обрабатываем GET запрос")
-    return request.args.to_dict() # через кавычки выводит текст в эксплорер
 
 if __name__ == "__main__":
+    engine = create_engine(
+        f"postgresql://{DB_USER}:{DB_PASSWORD}@localhost/{DB_NAME}"
+    )
+
+    app.session = create_tables(engine)
+
     app.run()

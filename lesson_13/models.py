@@ -18,6 +18,8 @@ class User(Base):
     def __str__(self):
         return f"User #{self.email}"
 
+    def __str__(self):
+        return f"User #{self.email}"
 
 class Profile(Base):
     __tablename__ = "profile"
